@@ -46,7 +46,9 @@ def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_ca
 "SELECT projects.category, SUM(pledges.amount)
 FROM projects
 INNER JOIN pledges 
-ON projects.id = pledges.project_id"
+ON projects.id = pledges.project_id
+GROUP BY projects.category
+ORDER BY SUM"
 end
 
 def selects_the_category_name_and_the_sum_total_of_the_all_itsr_pledges_for_the_books_category
